@@ -13,7 +13,7 @@ export async function middleware(request: NextRequest) {
 
   if (!userToken) {
     console.log("Token not found, redirecting to login page");
-    return NextResponse.redirect(new URL("/login", request.url));
+    return NextResponse.redirect(new URL("/u/login", request.url));
   }
 
   const secretKey = process.env.SECRET_KEY;

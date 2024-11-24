@@ -42,7 +42,7 @@ const EditButton = () => {
 
   return (
     <>
-      <button className="btn" onClick={() => setShowedit(true)}>
+      <button className="btn bg-transparent m-1" onClick={() => setShowedit(true)}>
         Edit Task
       </button>
       {showEdit && (

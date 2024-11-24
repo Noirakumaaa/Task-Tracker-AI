@@ -1,3 +1,4 @@
+'use client'
 import React, { useState, useEffect } from "react";
 import Cookies from "js-cookie";
 import { useDispatch } from "react-redux";
@@ -91,7 +92,7 @@ const AddTask = () => {
 
   return (
     <>
-      <button className="btn" onClick={openModal}>
+      <button className="btn bg-transparent m-1" onClick={openModal}>
         Add Task
       </button>
       <dialog id="my_modal_1" className="modal">
