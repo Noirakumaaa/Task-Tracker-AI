@@ -3,6 +3,7 @@ import { jwtVerify } from "jose";
 
 export async function middleware(request: NextRequest) {
 
+
   const response = NextResponse.next();
 
   if (["/api/login", "/api/register"].some((path) => request.url.includes(path))) {
@@ -21,6 +22,7 @@ export async function middleware(request: NextRequest) {
     const { payload } = await jwtVerify(userToken.value, secretKey);
 
     console.log("Token valid, payload:", payload);
+    console.log("Key :", secretKey);
 
     response.headers.set("x-user", JSON.stringify(payload));
 
