@@ -22,9 +22,6 @@ const UserTopNav = () => {
             <UserNavButton name="Calendar" link="calendar" />
           </li>
           <li className="m-3">
-            <UserNavButton name="Scheduler" link="scheduler" />
-          </li>
-          <li className="m-3">
             <UserNavButton name="Chatbot" link="chatbot" />
           </li>
         </ul>

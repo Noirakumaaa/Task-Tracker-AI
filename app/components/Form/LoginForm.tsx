@@ -118,7 +118,6 @@ const LoginForm = () => {
         <button className="btn btn-outline" type="submit" disabled={loading}>
           {loading ? "Logging in..." : "Login"}
         </button>
-        {errorMessage && <p className="text-red-500">{errorMessage}</p>}
       </form>
       
     </div>
