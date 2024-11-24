@@ -2,8 +2,6 @@ import type { ReactNode } from "react";
 import type { Metadata } from 'next'
 import { StoreProvider } from "./StoreProvider";
 import Notification from "./components/Notification/Notification";
-import Head from 'next/head';  // Import Head from next/head
-
 import "./styles/globals.css";
 
 interface Props {

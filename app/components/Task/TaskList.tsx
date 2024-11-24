@@ -73,7 +73,8 @@ const TaskComponent = () => {
   };
 
   return (
-    <div className="overflow-x-auto w-[80%] h-full p-10 ">
+    <>
+       <div className="overflow-x-auto border p-5 ">
       <table className="table">
         <thead>
           <tr>
@@ -245,6 +246,8 @@ const TaskComponent = () => {
         </div>
       </dialog>
     </div>
+    </>
+ 
   );
 };
 

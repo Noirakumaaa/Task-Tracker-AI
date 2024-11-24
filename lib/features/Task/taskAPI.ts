@@ -8,7 +8,7 @@ interface TaskItem {
 }
 
 const getAllTodo = async () => {
-    const res = await fetch("http://localhost:3000/api/task",{
+    const res = await fetch("http://localhost:3000/api/task/get",{
         method : "GET",
         headers : {
             "Content-Type" : "application/json"
@@ -20,7 +20,7 @@ const getAllTodo = async () => {
 
 
 const postTodoItem = async (data: TaskItem) =>{
-    const res = await fetch("http://localhost:3000/api/task",{
+    const res = await fetch("http://localhost:3000/api/task/post",{
         method : "POST",
         headers: {
             "Content-Type" : "application/json",
@@ -35,7 +35,7 @@ const postTodoItem = async (data: TaskItem) =>{
 
 const deleteTodoItems = async (data: TaskItem[])=>{
     console.log(data)
-    const res = await fetch("http://localhost:3000/api/task",{
+    const res = await fetch("http://localhost:3000/api/task/delete",{
         method: "DELETE",
         headers : {
             "Content-Type" : "application/json"
@@ -49,7 +49,7 @@ const deleteTodoItems = async (data: TaskItem[])=>{
 
 const updateTodoItem = async (data: TaskItem[],status :string)=>{
     console.log(data,status, "WORLD")
-    const res = await fetch("http://localhost:3000/api/task",{
+    const res = await fetch("http://localhost:3000/api/task/put",{
         method: "PUT",
         headers : {
             "Content-Type" : "application/json"

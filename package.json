@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next",
+    "dev": "next dev -H 0.0.0.0 -p 3000",
     "build": "next build",
     "start": "next start"
   },
@@ -11,6 +11,7 @@
     "autoprefixer": "^10.4.20",
     "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
     "jose": "^5.9.6",
     "js-cookie": "^3.0.5",
     "jsonwebtoken": "^9.0.2",
@@ -24,6 +25,7 @@
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
+    "@types/cors": "^2.8.17",
     "@types/js-cookie": "^3.0.6",
     "@types/jsonwebtoken": "^9.0.7",
     "@types/node": "^20.2.5",

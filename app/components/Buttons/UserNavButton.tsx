@@ -24,7 +24,7 @@ const UserNavButton = ({ name, link }: props) => {
 
   return (
     <Link
-      className="btn btn-outline min-w-[120px] w-30"
+      className=" sm:min-w-[120px] sm:w-30 md:btn-outline md:btn"
       href={`/v1/${userId}/${link}`}
     >
       {name}
