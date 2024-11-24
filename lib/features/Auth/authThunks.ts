@@ -1,7 +1,7 @@
 
 import { LoginUser, RegisterUser } from "./authAPI";
 import { setNotification } from "@/lib/features/Notification/notificationSlice";
-import { logout, setCurrentUser } from "./authSlice";
+import { logout, setCurrentUser, setError } from "./authSlice";
 import Cookies from "js-cookie";
 
 interface userLogin {
@@ -30,15 +30,24 @@ export const login = (data: userLogin) => async (dispatch:any) =>{
       role:res.role,
       id: res.id
     }))
-    Cookies.set("token",res.token ,{ path: "/" });
-    Cookies.set("role", res.role,{ path: "/" });
-    Cookies.set("user_id",res.id ,{ path: "/" });
-    if(res){
+
+    if(res.Status === "Login Successfully"){
+
       dispatch(setNotification({
         name : "Login Successfully",
         link : "Close",
         notification_type: "success"
       }))
+      Cookies.set("token",res.token ,{ path: "/" });
+      Cookies.set("role", res.role,{ path: "/" });
+      Cookies.set("user_id",res.id ,{ path: "/" });
+    }else{
+      dispatch(setNotification({
+        name : res.Status,
+        link : "Close",
+        notification_type: "error"
+      }))
+      dispatch(setError("Login Failed"))
     }
   }catch(error){
     dispatch(setNotification({
@@ -46,6 +55,7 @@ export const login = (data: userLogin) => async (dispatch:any) =>{
       link : "Close",
       notification_type: "Error"
     }))
+    dispatch(setError("Login Failed"))
   }
 }
 
@@ -57,11 +67,17 @@ export const register = (data: userRegister) => async (dispatch:any) =>{
       notification_type: "loading"
     }))
     const res = await RegisterUser(data)
-    if(res){
+    if(res.Status === "Register Successfully"){
       dispatch(setNotification({
         name : "Register Successfully",
-        link : "login",
+        link : "Close",
         notification_type: "success"
+      }))
+    }else{
+      dispatch(setNotification({
+        name : res.Status,
+        link : "Close",
+        notification_type: "error"
       }))
     }
   }catch(error){

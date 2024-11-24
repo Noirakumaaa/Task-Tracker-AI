@@ -8,6 +8,7 @@ import {
 import { AppDispatch } from "@/lib/store";
 import { login } from "@/lib/features/Auth/authThunks";
 import { useRouter } from "next/navigation";
+import { setError } from "@/lib/features/Auth/authSlice";
 
 
 interface FormData {
@@ -61,6 +62,15 @@ const LoginForm = () => {
 
     dispatch(login(formData))
   };
+
+  useEffect(()=>{
+
+      setLoading(false)
+      dispatch(setError(""))
+
+  },[errorRedux])
+
+
   
 
   return (
@@ -71,7 +81,7 @@ const LoginForm = () => {
       >
         <h1 className="text-xl font-bold mb-4">Login</h1>
 
-        {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+
 
         <div className="w-full max-w-xs">
           <label htmlFor="email" className="block text-sm font-medium mb-1">
@@ -88,7 +98,7 @@ const LoginForm = () => {
             required
           />
         </div>
-
+    
         <div className="w-full max-w-xs">
           <label htmlFor="password" className="block text-sm font-medium mb-1">
             Password:
@@ -108,7 +118,9 @@ const LoginForm = () => {
         <button className="btn btn-outline" type="submit" disabled={loading}>
           {loading ? "Logging in..." : "Login"}
         </button>
+        {errorMessage && <p className="text-red-500">{errorMessage}</p>}
       </form>
+      
     </div>
   );
 };
