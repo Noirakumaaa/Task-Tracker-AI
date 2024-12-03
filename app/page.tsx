@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import LandingPage from "./components/Navigation/landing/LandingPage";
-import NoneUserNav from "./components/Navigation/landing/Nav/NoneUserNav";
+import Navigation from "./components/Navigation/landing/Nav/Navigation";
 
 
 export default function IndexPage() {
   return (
     <>
-        <NoneUserNav />
+        <Navigation />
         <LandingPage />
     </>
 
